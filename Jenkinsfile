@@ -21,6 +21,13 @@ pipeline {
                 sh 'npm run build'
             }
         }
+         stage('Start Docker') {
+                    steps {
+                        sh '''
+                        sudo systemctl start docker
+                        '''
+                    }
+                }
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t react-app:latest .'

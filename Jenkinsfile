@@ -23,10 +23,8 @@ pipeline {
         }
          stage('Start Docker') {
                     steps {
-                        sh '''
-                        sudo systemctl start docker
-                        '''
-                    }
+                           sh 'dockerd --host=unix:///var/run/docker.sock &'
+                       }
                 }
         stage('Build Docker Image') {
             steps {

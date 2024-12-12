@@ -2,6 +2,8 @@ pipeline {
  agent any
     tools {
         nodejs 'node js' // Use the configured NodeJS version
+        dockerTool 'Docker' // Use the name you provided in Global Tool Configuration
+
     }
     stages {
         stage('Checkout Code') {
